@@ -1,0 +1,24 @@
+{
+  "name": "code-quest",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Code Quest — a puzzle game that teaches kids real JavaScript",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@uiw/codemirror-theme-basic": "^4.23.6",
+    "@uiw/react-codemirror": "^4.23.6",
+    "canvas-confetti": "^1.9.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}
