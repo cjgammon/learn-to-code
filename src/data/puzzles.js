@@ -201,7 +201,8 @@ export const PUZZLES = [
     title: 'Full Name',
     teach:
       'You can glue words together with `+`. Gluing words is called joining. ' +
-      "Don't forget a space in the middle, or the words will smoosh together!",
+      'To get a gap between them, glue in a space — a space is just quotes with ' +
+      'a blank inside: " ". Without it, the words smoosh together!',
     task:
       'Join `first` and `last` into `fullName`, with a space " " in between.',
     starter:
@@ -385,8 +386,9 @@ export const PUZZLES = [
     topic: 'Decisions',
     title: 'Secret Door',
     teach:
-      'Now we make the code DECIDE. An `if` runs the code inside its { } only ' +
-      'when something is true. Like: if you have the key, the door opens.',
+      'Now we make the code DECIDE. An `if` checks something you put in its ( ) ' +
+      'and runs the code inside its { } only when that something is true. Like: ' +
+      'if you have the key, the door opens.',
     task: 'Fill in the if so that when `hasKey` is true, `message` becomes "Welcome!".',
     starter:
       'let hasKey = true;\nlet message = "Locked";\n\n// Run this only if hasKey is true:\nif () {\n  message = "Welcome!";\n}\n\nconsole.log(message);',
