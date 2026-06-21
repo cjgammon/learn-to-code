@@ -124,6 +124,31 @@ export const PUZZLES = [
     checks: [{ label: 'level is now 2', expr: 'level === 2' }],
     success: 'Ding! You reached level 2! 🆙',
   },
+  {
+    id: 'vars-challenge',
+    topic: 'Variables',
+    title: 'Challenge: Hero Card',
+    teach:
+      "Time for a challenge — you've got this! No blanks this time. You write the " +
+      'code yourself, using everything you learned: a word box, a number box, and ' +
+      'changing a box. I believe in you! 🤖',
+    task:
+      'Make a `hero` box with any name (a word, in quotes). Make a `level` box that ' +
+      'starts at 1. Then level the hero up by changing `level` to 5.',
+    starter:
+      '// 1. Make a hero box with a name (in quotes).\n// 2. Make a level box that starts at 1.\n// 3. Then change level to 5.\n\n\n// This shows your hero card:\nconsole.log(hero, "is level", level);',
+    hints: [
+      'Make two boxes first: let hero = "..."; and let level = 1;',
+      'To level up, use the name with no "let": level = 5;',
+      'Try:\nlet hero = "Sam";\nlet level = 1;\nlevel = 5;',
+    ],
+    checks: [
+      { label: 'hero is a word (a string)', expr: "typeof hero === 'string'" },
+      { label: "hero isn't empty", expr: 'hero.length > 0' },
+      { label: 'level reached 5', expr: 'level === 5' },
+    ],
+    success: 'You built a whole hero card from scratch — level 5! 🌟',
+  },
 
   // ------------------------------- MATH --------------------------------
   {
@@ -192,6 +217,30 @@ export const PUZZLES = [
       { label: 'each equals 3', expr: 'each === 3' },
     ],
     success: 'Everyone gets 3 candies. Fair and sweet! 🍬',
+  },
+  {
+    id: 'math-challenge',
+    topic: 'Math',
+    title: 'Challenge: Pizza Party',
+    teach:
+      "Challenge time! Mix your math powers together. You'll need times (`*`) AND " +
+      'divide (`/`) to solve this one. Work out the order yourself — you can do it!',
+    task:
+      'There are 3 pizzas, each cut into 8 slices, shared by 4 friends. Make ' +
+      '`slicesEach` equal to how many slices each friend gets.',
+    starter:
+      'let pizzas = 3;\nlet slicesPerPizza = 8;\nlet friends = 4;\n\n// How many slices does each friend get?\nlet slicesEach = ;\n\nconsole.log(slicesEach);',
+    hints: [
+      'First find ALL the slices, then share them: total slices / friends.',
+      'All slices is pizzas * slicesPerPizza.',
+      'Try: let slicesEach = pizzas * slicesPerPizza / friends;',
+    ],
+    checks: [
+      { label: 'slicesEach is a number', expr: "typeof slicesEach === 'number'" },
+      { label: 'slicesEach equals 6', expr: 'slicesEach === 6' },
+    ],
+    expectedOutput: ['6'],
+    success: '24 slices, 4 friends, 6 each. Pizza math champion! 🍕',
   },
 
   // ------------------------------ STRINGS ------------------------------
@@ -300,6 +349,29 @@ export const PUZZLES = [
     expectedOutput: ['Bit is 10'],
     success: 'Bit is 10 — now you can show anything you like! 📢',
   },
+  {
+    id: 'str-challenge',
+    topic: 'Strings',
+    title: 'Challenge: Make a Poster',
+    teach:
+      "Challenge time! Put your word powers together: backticks with ${ } to build " +
+      'a sentence, AND `.toUpperCase()` to make it SHOUT. Two tricks in one line!',
+    task:
+      'Build `poster` so it reads exactly:  WELCOME, MAX!  — all in capitals. Use ' +
+      'the `name` box and make the whole thing uppercase.',
+    starter:
+      'let name = "Max";\n\n// Make poster read: WELCOME, MAX!\nlet poster = ;\n\nconsole.log(poster);',
+    hints: [
+      'First build the sentence with backticks: `Welcome, ${name}!`',
+      'Then add .toUpperCase() to the end to make it all capitals.',
+      'Try: let poster = `Welcome, ${name}!`.toUpperCase();',
+    ],
+    checks: [
+      { label: 'poster is "WELCOME, MAX!"', expr: 'poster === "WELCOME, MAX!"' },
+    ],
+    expectedOutput: ['WELCOME, MAX!'],
+    success: 'WELCOME, MAX! Your poster is ready to hang. 📜',
+  },
 
   // -------------------------- TRUE OR FALSE ----------------------------
   {
@@ -379,6 +451,29 @@ export const PUZZLES = [
     checks: [{ label: 'isNight is false', expr: 'isNight === false' }],
     success: 'Day flipped to night! 🌙',
   },
+  {
+    id: 'bool-challenge',
+    topic: 'True or False',
+    title: 'Challenge: Secret Code',
+    teach:
+      "Challenge time! You're a code-cracker now. Use `===` to check if two things " +
+      'match, and `>` to check if one is bigger. Two questions, two booleans!',
+    task:
+      'The secret number is 7 and the guess is 9. Make `correct` ask if the guess ' +
+      'equals the secret. Make `tooHigh` ask if the guess is bigger than the secret.',
+    starter:
+      'let secret = 7;\nlet guess = 9;\n\n// Did they guess right? (use ===)\nlet correct = ;\n\n// Was the guess too high? (use >)\nlet tooHigh = ;\n\nconsole.log(correct, tooHigh);',
+    hints: [
+      'correct compares with three equals: guess === secret',
+      'tooHigh compares with bigger-than: guess > secret',
+      'Try:\nlet correct = guess === secret;\nlet tooHigh = guess > secret;',
+    ],
+    checks: [
+      { label: 'correct is false (9 is not 7)', expr: 'correct === false' },
+      { label: 'tooHigh is true (9 is bigger than 7)', expr: 'tooHigh === true' },
+    ],
+    success: 'Wrong guess, and too high — you cracked the logic! 🔐',
+  },
 
   // ---------------------------- DECISIONS ------------------------------
   {
@@ -436,6 +531,28 @@ export const PUZZLES = [
     ],
     checks: [{ label: 'size is "medium" for n = 8', expr: 'size === "medium"' }],
     success: "n is 8 — that's medium! 🥤",
+  },
+  {
+    id: 'if-challenge',
+    topic: 'Decisions',
+    title: 'Challenge: Medal Ceremony',
+    teach:
+      "Challenge time! Write the whole decision yourself this time — no blanks. " +
+      'Use `if`, `else if`, and `else` to hand out the right medal. You decide the ' +
+      'rules in code!',
+    task:
+      'A runner finished in 15 seconds. Set `medal`: under 10 → "gold", under 20 → ' +
+      '"silver", otherwise → "bronze".',
+    starter:
+      'let time = 15;\nlet medal = "";\n\n// Write the if / else if / else to pick the medal:\n\n\nconsole.log(medal);',
+    hints: [
+      'Start with: if (time < 10) { medal = "gold"; }',
+      'Then add: else if (time < 20) { medal = "silver"; }',
+      'Try:\nif (time < 10) {\n  medal = "gold";\n} else if (time < 20) {\n  medal = "silver";\n} else {\n  medal = "bronze";\n}',
+    ],
+    checks: [{ label: 'medal is "silver" for time 15', expr: 'medal === "silver"' }],
+    expectedOutput: ['silver'],
+    success: '15 seconds earns silver — you wrote the whole rulebook! 🥈',
   },
 
   // ------------------------------ LOOPS --------------------------------
@@ -496,6 +613,27 @@ export const PUZZLES = [
     checks: [],
     expectedOutput: ['2', '4', '6', '8', '10'],
     success: 'Two, four, six, eight... counting by twos! 👟',
+  },
+  {
+    id: 'loop-challenge',
+    topic: 'Loops',
+    title: 'Challenge: Countdown',
+    teach:
+      "Challenge time! Every loop so far counted UP. Can you make one count DOWN? " +
+      "Build the whole loop yourself, then blast off at the end. Ready? 🚀",
+    task:
+      'Print a countdown 5, 4, 3, 2, 1 — each on its own line — and then print ' +
+      '"Blast off!" on the last line.',
+    starter:
+      "// Count down from 5 to 1, then blast off!\n\n\nconsole.log(\"Blast off!\");",
+    hints: [
+      'Start the counter high and go down: let i = 5; keep going while i >= 1.',
+      'To count down, subtract each time: i = i - 1. Print i inside the loop.',
+      'Try:\nfor (let i = 5; i >= 1; i = i - 1) {\n  console.log(i);\n}\nconsole.log("Blast off!");',
+    ],
+    checks: [],
+    expectedOutput: ['5', '4', '3', '2', '1', 'Blast off!'],
+    success: '5… 4… 3… 2… 1… Blast off! You flew the loop backwards! 🚀',
   },
 
   // ---------------------------- FUNCTIONS ------------------------------
@@ -564,6 +702,32 @@ export const PUZZLES = [
     ],
     expectedOutput: ['5'],
     success: 'add(2, 3) = 5. You built a calculator! 🧮',
+  },
+  {
+    id: 'fn-challenge',
+    topic: 'Functions',
+    title: 'Challenge: Ticket Machine',
+    teach:
+      "Final challenge — the big one! Build a machine that makes a DECISION inside " +
+      'it. Use a function, a `return`, and a comparison (`>=`) all together. This is ' +
+      'everything you know in one puzzle. Go for it! 🏆',
+    task:
+      'Build `canRide(height)` so it returns true when height is 120 or more, and ' +
+      'false when it is less. Then it shows whether someone 130 tall can ride.',
+    starter:
+      'function canRide(height) {\n  // Return true if height is 120 or more, otherwise false.\n\n}\n\nconsole.log(canRide(130));',
+    hints: [
+      'Ask the question with >=: height >= 120 is already true or false.',
+      'You can return that question straight back: return height >= 120;',
+      'Try:\nfunction canRide(height) {\n  return height >= 120;\n}',
+    ],
+    checks: [
+      { label: 'canRide(130) is true', expr: 'canRide(130) === true' },
+      { label: 'canRide(100) is false', expr: 'canRide(100) === false' },
+      { label: 'canRide(120) is true', expr: 'canRide(120) === true' },
+    ],
+    expectedOutput: ['true'],
+    success: 'Tall enough to ride — your machine makes its own decisions! 🎢',
   },
 ]
 
