@@ -45,20 +45,23 @@ self.onmessage = (event) => {
       .join(',') +
     ']'
 
+  // `__logs` is the same array reference that fakeConsole pushes into, so by the
+  // time the checks run it holds everything the kid printed. Checks can use it to
+  // verify the kid printed their answer, e.g. "__logs.includes(hero)".
   const script =
-    'return (function(console){\n' +
+    'return (function(console, __logs){\n' +
     code +
     '\n;return ' +
     checkArray +
-    ';\n})(__sandboxConsole);'
+    ';\n})(__sandboxConsole, __capturedLogs);'
 
   let error = null
   let results = checks.map(() => false)
 
   try {
     // eslint-disable-next-line no-new-func
-    const fn = new Function('__sandboxConsole', script)
-    const out = fn(fakeConsole)
+    const fn = new Function('__sandboxConsole', '__capturedLogs', script)
+    const out = fn(fakeConsole, logs)
     if (Array.isArray(out)) results = out
   } catch (e) {
     error = friendlyError(e)
