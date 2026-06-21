@@ -17,14 +17,17 @@ export default function PuzzleView({ puzzle, alreadySolved, onSolved, onBack, on
   const [solved, setSolved] = useState(alreadySolved)
   const firedConfetti = useRef(false)
 
-  // Reset everything when we move to a different puzzle.
+  // Reset everything ONLY when we move to a different puzzle. We intentionally
+  // depend on puzzle.id alone: solving a puzzle flips `alreadySolved`, and we do
+  // NOT want that to wipe out the code the kid just wrote.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setCode(puzzle.starter)
     setResult(null)
     setRunning(false)
     setSolved(alreadySolved)
     firedConfetti.current = false
-  }, [puzzle.id, puzzle.starter, alreadySolved])
+  }, [puzzle.id])
 
   const index = getPuzzleIndex(puzzle.id)
   const hasNext = index >= 0 && index < PUZZLES.length - 1
