@@ -1,0 +1,412 @@
+/* ---------- Code Quest theme: bright, rounded, playful ---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600&display=swap');
+
+:root {
+  --purple: #6c5ce7;
+  --blue: #0984e3;
+  --green: #00b894;
+  --orange: #e17055;
+  --yellow: #ffd23f;
+  --pink: #ff7675;
+  --ink: #2d2d44;
+  --paper: #fff;
+  --bg1: #a6c0fe;
+  --bg2: #f68084;
+  --shadow: 0 8px 0 rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.12);
+  --radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Fredoka', system-ui, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  margin: 0;
+}
+
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 18px 48px;
+}
+
+.app__footer {
+  text-align: center;
+  margin-top: 32px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.15s ease;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
+}
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn--run {
+  background: var(--green);
+  color: #fff;
+  font-size: 1.15rem;
+  padding: 14px 30px;
+}
+.btn--ghost {
+  background: #fff;
+  color: var(--purple);
+}
+.btn--next {
+  background: var(--yellow);
+  color: var(--ink);
+  margin-left: 8px;
+}
+.btn--back {
+  background: #fff;
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+
+/* ---------- Lesson Map ---------- */
+.map__header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  box-shadow: var(--shadow);
+}
+.map__title {
+  font-size: 2.4rem;
+  color: var(--purple);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.map__progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 4px 8px;
+}
+.map__progressbar {
+  flex: 1;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.map__progressfill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--yellow), var(--green));
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+.map__progresstext {
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.topic {
+  margin-top: 24px;
+}
+.topic__title {
+  color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+.topic__emoji {
+  font-size: 1.6rem;
+}
+.topic__blurb {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  opacity: 0.92;
+  margin-left: 6px;
+}
+.topic__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+.card {
+  font-family: 'Baloo 2', sans-serif;
+  background: var(--paper);
+  border: none;
+  border-radius: var(--radius);
+  padding: 18px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow);
+  transition: transform 0.1s ease;
+}
+.card:hover:not(:disabled) {
+  transform: translateY(-4px) rotate(-1deg);
+}
+.card__badge {
+  font-size: 1.8rem;
+}
+.card__title {
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+}
+.card--solved {
+  background: #eafff6;
+  outline: 3px solid var(--green);
+}
+.card--locked {
+  filter: grayscale(0.6);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ---------- Speech bubble ---------- */
+.speech {
+  position: relative;
+  background: #f4f3ff;
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  border: 2px solid #e6e3ff;
+}
+.speech--success {
+  background: #eafff6;
+  border-color: var(--green);
+  font-weight: 600;
+}
+.speech--encourage {
+  background: #fff6ef;
+  border-color: var(--orange);
+}
+
+/* ---------- Puzzle view ---------- */
+.puzzle__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.puzzle__teach,
+.puzzle__work {
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.puzzle__robotrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.puzzle__topic {
+  font-weight: 600;
+  color: var(--purple);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+.puzzle__title {
+  font-size: 1.6rem;
+  color: var(--ink);
+}
+.puzzle__task {
+  background: #fffbe9;
+  border: 2px dashed var(--yellow);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 1.05rem;
+}
+.puzzle__tasklabel {
+  display: block;
+  font-weight: 700;
+  color: var(--orange);
+  font-family: 'Baloo 2', sans-serif;
+  margin-bottom: 4px;
+}
+.puzzle__buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ---------- Hints ---------- */
+.hints {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.hints__item {
+  background: #fffbe9;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 1rem;
+}
+.hints__bulb {
+  margin-right: 6px;
+}
+.hints__done {
+  font-weight: 600;
+  color: var(--green);
+}
+
+/* ---------- Editor ---------- */
+.editor {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid #e6e3ff;
+}
+.cm-editor {
+  font-size: 16px;
+}
+.cm-editor .cm-content {
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* ---------- Output console ---------- */
+.console {
+  background: #1b1b2f;
+  color: #e8e8ff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  min-height: 60px;
+}
+.console--empty {
+  background: #f4f3ff;
+  color: var(--ink);
+  font-family: 'Fredoka', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.console__section + .console__section {
+  margin-top: 12px;
+}
+.console__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+.console__logs {
+  margin: 0;
+  white-space: pre-wrap;
+  color: #7ef9ff;
+}
+.console__error {
+  margin: 0;
+  white-space: pre-wrap;
+  color: #ff9a9a;
+}
+.console__hintline {
+  color: #c9c9ff;
+}
+.checks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fredoka', sans-serif;
+}
+.check__mark {
+  font-weight: 700;
+  width: 18px;
+  text-align: center;
+}
+.check--pass {
+  color: #6cf0c2;
+}
+.check--fail {
+  color: #ffb3b3;
+}
+
+/* ---------- Robot animations ---------- */
+.robot {
+  flex-shrink: 0;
+}
+.robot__antenna {
+  transform-origin: 50px 9px;
+  animation: blink 3s ease-in-out infinite;
+}
+.robot--thinking .robot__antenna {
+  animation: spin 1s linear infinite;
+}
+.robot--happy {
+  animation: bounce 0.6s ease;
+}
+.robot--oops {
+  animation: shake 0.4s ease;
+}
+@keyframes blink {
+  0%, 92%, 100% { opacity: 1; }
+  96% { opacity: 0.4; }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-12px); }
+  60% { transform: translateY(-4px); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .puzzle__grid {
+    grid-template-columns: 1fr;
+  }
+  .map__title {
+    font-size: 1.8rem;
+  }
+}
