@@ -65,9 +65,11 @@ export const PUZZLES = [
     teach:
       "Beep boop! A variable is like a labeled box. You put something inside, " +
       "and the label lets you find it later. We make a box with the word `let`. " +
-      "I've already added a `console.log` line for you — that's the part that " +
-      "shows what's in the box down in the output. Just fill in the box!",
-    task: 'Put your name (or any name!) inside the `hero` box.',
+      'When you put WORDS in a box, wrap them in "quotation marks" — that tells ' +
+      "the computer it's text, not a secret command. I've already added a " +
+      "`console.log` line for you — that's the part that shows what's in the box " +
+      "down in the output. Just fill in the box!",
+    task: 'Put your name (or any name!) inside the `hero` box — remember the quotes!',
     starter:
       '// Put a name inside the box.\nlet hero = ;\n\n// This line shows it in the output below:\nconsole.log(hero);',
     hints: [
