@@ -34,6 +34,26 @@ export const TOPICS = [
     emoji: '💬',
     blurb: 'Play with words and letters.',
   },
+  {
+    title: 'True or False',
+    emoji: '🔍',
+    blurb: 'Yes-or-no values.',
+  },
+  {
+    title: 'Decisions',
+    emoji: '🔀',
+    blurb: 'Let the code choose.',
+  },
+  {
+    title: 'Loops',
+    emoji: '🔁',
+    blurb: 'Do it again and again.',
+  },
+  {
+    title: 'Functions',
+    emoji: '⚙️',
+    blurb: 'Build your own commands.',
+  },
 ]
 
 export const PUZZLES = [
@@ -256,6 +276,290 @@ export const PUZZLES = [
       { label: '"dragon" has 6 letters', expr: 'howLong === 6' },
     ],
     success: '"dragon" has 6 letters. You counted like a computer! 🐉',
+  },
+  {
+    id: 'str-5',
+    topic: 'Strings',
+    title: 'Show and Tell',
+    teach:
+      "You've seen `console.log` helping out in every puzzle — here's its secret: " +
+      'it shows ANYTHING you give it in the output box. You can even show several ' +
+      'things at once by separating them with commas, and it adds a space between.',
+    task: 'Use console.log to show the sentence:  Bit is 10',
+    starter:
+      'let name = "Bit";\nlet age = 10;\n\n// Show a sentence! Separate things with commas.\nconsole.log();',
+    hints: [
+      'console.log can show several things: console.log(a, b, c)',
+      'Put the word "is" in quotes between the two variables.',
+      'Type exactly: console.log(name, "is", age);',
+    ],
+    checks: [],
+    expectedOutput: ['Bit is 10'],
+    success: 'Bit is 10 — now you can show anything you like! 📢',
+  },
+
+  // -------------------------- TRUE OR FALSE ----------------------------
+  {
+    id: 'bool-1',
+    topic: 'True or False',
+    title: 'True or False',
+    teach:
+      'Some answers are just yes or no. In code we write those as `true` or ' +
+      '`false` — these special words are called booleans. They never need quotes!',
+    task: 'Make a boolean called `isFun` and set it to true.',
+    starter: '// Booleans are true or false (no quotes!)\nlet isFun = ;\n\nconsole.log(isFun);',
+    hints: [
+      'Just write the word true, with no quotes.',
+      'It looks like: let isFun = true;',
+      'Type exactly: let isFun = true;',
+    ],
+    checks: [
+      { label: 'isFun is a true/false value', expr: "typeof isFun === 'boolean'" },
+      { label: 'isFun is true', expr: 'isFun === true' },
+    ],
+    success: 'Coding IS fun — true! 😄',
+  },
+  {
+    id: 'bool-2',
+    topic: 'True or False',
+    title: 'Bigger or Smaller',
+    teach:
+      'You can ASK the computer a question and it answers true or false. Use `>` ' +
+      'for "bigger than" and `<` for "smaller than". So 10 > 3 is... true!',
+    task: 'Make `isBigger` ask whether 10 is bigger than 3.',
+    starter: '// Is 10 bigger than 3? Use >\nlet isBigger = ;\n\nconsole.log(isBigger);',
+    hints: [
+      'Compare with the > sign: 10 > 3',
+      'It looks like: let isBigger = 10 > 3;',
+      'Type exactly: let isBigger = 10 > 3;',
+    ],
+    checks: [
+      { label: 'isBigger is a true/false value', expr: "typeof isBigger === 'boolean'" },
+      { label: 'isBigger is true', expr: 'isBigger === true' },
+    ],
+    success: 'Yep, 10 is bigger than 3 — true! 📏',
+  },
+  {
+    id: 'bool-3',
+    topic: 'True or False',
+    title: 'Are They Equal?',
+    teach:
+      'To check if two things are EXACTLY the same, use three equals signs ' +
+      '`===`. It answers true if they match and false if they do not. Three ' +
+      'equals, not one!',
+    task: 'Check if `password` is exactly "abc". Store the answer in `match`.',
+    starter:
+      'let password = "abc";\n\n// Is password exactly "abc"? Use ===\nlet match = ;\n\nconsole.log(match);',
+    hints: [
+      'Compare with three equals: password === "abc"',
+      'It looks like: let match = password === "abc";',
+      'Type exactly: let match = password === "abc";',
+    ],
+    checks: [{ label: 'match is true', expr: 'match === true' }],
+    success: "Passwords match — you're in! 🔓",
+  },
+  {
+    id: 'bool-4',
+    topic: 'True or False',
+    title: 'Flip It',
+    teach:
+      'The `!` mark means "not" — it flips a boolean to its opposite. `!true` ' +
+      'becomes false, and `!false` becomes true. Perfect for opposites!',
+    task: 'It is daytime (`isDay` is true). Make `isNight` the OPPOSITE of isDay using `!`.',
+    starter:
+      'let isDay = true;\n\n// isNight is the opposite of isDay. Use !\nlet isNight = ;\n\nconsole.log(isNight);',
+    hints: [
+      'Put a ! in front to flip it: !isDay',
+      'It looks like: let isNight = !isDay;',
+      'Type exactly: let isNight = !isDay;',
+    ],
+    checks: [{ label: 'isNight is false', expr: 'isNight === false' }],
+    success: 'Day flipped to night! 🌙',
+  },
+
+  // ---------------------------- DECISIONS ------------------------------
+  {
+    id: 'if-1',
+    topic: 'Decisions',
+    title: 'Secret Door',
+    teach:
+      'Now we make the code DECIDE. An `if` runs the code inside its { } only ' +
+      'when something is true. Like: if you have the key, the door opens.',
+    task: 'Fill in the if so that when `hasKey` is true, `message` becomes "Welcome!".',
+    starter:
+      'let hasKey = true;\nlet message = "Locked";\n\n// Run this only if hasKey is true:\nif () {\n  message = "Welcome!";\n}\n\nconsole.log(message);',
+    hints: [
+      'The thing to check goes in the parentheses: if (hasKey)',
+      'Just put hasKey between the ( ).',
+      'Type: if (hasKey) {',
+    ],
+    checks: [{ label: 'message is "Welcome!"', expr: 'message === "Welcome!"' }],
+    success: 'The door swings open — Welcome! 🚪',
+  },
+  {
+    id: 'if-2',
+    topic: 'Decisions',
+    title: 'Pass or Fail',
+    teach:
+      'Sometimes you want one thing OR another. `if` ... `else` does exactly ' +
+      'that: if the test is true, do the first part; otherwise (`else`) do the ' +
+      'second part.',
+    task: 'If `score` is 50 or more, set `result` to "pass". Otherwise set it to "fail".',
+    starter:
+      'let score = 72;\nlet result = "";\n\nif (score >= 50) {\n  result = ;\n} else {\n  result = ;\n}\n\nconsole.log(result);',
+    hints: [
+      'Put "pass" in the if part and "fail" in the else part (with quotes).',
+      'First blank: result = "pass";  second blank: result = "fail";',
+      'Fill them in: result = "pass"; and result = "fail";',
+    ],
+    checks: [{ label: 'result is "pass" for score 72', expr: 'result === "pass"' }],
+    success: 'Score 72 — you pass! 🎓',
+  },
+  {
+    id: 'if-3',
+    topic: 'Decisions',
+    title: 'Pick a Size',
+    teach:
+      'You can chain decisions with `else if` to pick from several choices. The ' +
+      'computer checks each one in order and uses the first that is true.',
+    task: 'Set `size`: if `n` is over 10 → "big", else if over 5 → "medium", else → "small".',
+    starter:
+      'let n = 8;\nlet size = "";\n\nif (n > 10) {\n  size = "big";\n} else if (n > 5) {\n  size = ;\n} else {\n  size = "small";\n}\n\nconsole.log(size);',
+    hints: [
+      'n is 8 — more than 5 but not more than 10, so it is the middle one.',
+      'Fill the blank with "medium" (in quotes).',
+      'Type exactly: size = "medium";',
+    ],
+    checks: [{ label: 'size is "medium" for n = 8', expr: 'size === "medium"' }],
+    success: "n is 8 — that's medium! 🥤",
+  },
+
+  // ------------------------------ LOOPS --------------------------------
+  {
+    id: 'loop-1',
+    topic: 'Loops',
+    title: 'Count to Five',
+    teach:
+      'A `for` loop repeats code. This one starts i at 1, keeps going while i is ' +
+      '5 or less, and adds 1 each time. Whatever is inside { } happens every round!',
+    task: 'Print the numbers 1, 2, 3, 4, 5 — each on its own line.',
+    starter: 'for (let i = 1; i <= 5; i = i + 1) {\n  console.log();\n}',
+    hints: [
+      'Print the counter i each time around: console.log(i)',
+      'Put i inside the parentheses.',
+      'Type exactly: console.log(i);',
+    ],
+    checks: [],
+    expectedOutput: ['1', '2', '3', '4', '5'],
+    success: 'Counted to five, all by loop! 🔢',
+  },
+  {
+    id: 'loop-2',
+    topic: 'Loops',
+    title: 'Add Them Up',
+    teach:
+      'Loops are great for adding lots of numbers. We keep a `total` and add the ' +
+      'counter to it every time around the loop.',
+    task: 'Use the loop to add up 1 through 10 into `total`.',
+    starter:
+      'let total = 0;\n\nfor (let i = 1; i <= 10; i = i + 1) {\n  // add i to total each time\n  total = ;\n}\n\nconsole.log(total);',
+    hints: [
+      'Add i to whatever total already is: total + i',
+      'It looks like: total = total + i;',
+      'Type exactly: total = total + i;',
+    ],
+    checks: [
+      { label: 'total is a number', expr: "typeof total === 'number'" },
+      { label: 'total equals 55', expr: 'total === 55' },
+    ],
+    expectedOutput: ['55'],
+    success: '1 + 2 + ... + 10 = 55. The loop did the work! ➕',
+  },
+  {
+    id: 'loop-3',
+    topic: 'Loops',
+    title: 'Count by Twos',
+    teach:
+      'You can make a loop skip! Instead of adding 1 each time, add 2 to count by ' +
+      'twos: 2, 4, 6, and so on.',
+    task: 'Make this loop count by twos (2, 4, 6, 8, 10) by adding 2 each time.',
+    starter: 'for (let i = 2; i <= 10; i = ) {\n  console.log(i);\n}',
+    hints: [
+      'Each time, i should go up by 2: i + 2',
+      'Fill the blank: i = i + 2',
+      'Type exactly: i = i + 2',
+    ],
+    checks: [],
+    expectedOutput: ['2', '4', '6', '8', '10'],
+    success: 'Two, four, six, eight... counting by twos! 👟',
+  },
+
+  // ---------------------------- FUNCTIONS ------------------------------
+  {
+    id: 'fn-1',
+    topic: 'Functions',
+    title: 'Doubling Machine',
+    teach:
+      'A function is a little machine you build once and use again and again. You ' +
+      'give it something (an input), and it gives back a result with `return`.',
+    task: 'Finish the `double` machine so it returns its input times 2.',
+    starter:
+      'function double(n) {\n  return ;\n}\n\n// Try the machine:\nconsole.log(double(5));',
+    hints: [
+      'Return the input times 2: n * 2',
+      'It looks like: return n * 2;',
+      'Type exactly: return n * 2;',
+    ],
+    checks: [
+      { label: 'double(5) is 10', expr: 'double(5) === 10' },
+      { label: 'double(7) is 14', expr: 'double(7) === 14' },
+    ],
+    expectedOutput: ['10'],
+    success: 'Your doubling machine works! double(5) = 10. ⚙️',
+  },
+  {
+    id: 'fn-2',
+    topic: 'Functions',
+    title: 'Greeting Machine',
+    teach:
+      'Machines can work with words too. This one takes a name and returns a ' +
+      'greeting. Remember backticks and ${ } let you drop the name into a sentence.',
+    task: 'Finish `greet` so it returns "Hi, " followed by the name.',
+    starter:
+      'function greet(name) {\n  return ;\n}\n\nconsole.log(greet("Max"));',
+    hints: [
+      'Use backticks and ${name}: `Hi, ${name}`',
+      'Make it read "Hi, Max" — a comma and space after Hi.',
+      'Type exactly: return `Hi, ${name}`;',
+    ],
+    checks: [
+      { label: 'greet("Max") is "Hi, Max"', expr: 'greet("Max") === "Hi, Max"' },
+      { label: 'greet("Sam") is "Hi, Sam"', expr: 'greet("Sam") === "Hi, Sam"' },
+    ],
+    expectedOutput: ['Hi, Max'],
+    success: 'Hi, Max! Your greeting machine is ready. 👋',
+  },
+  {
+    id: 'fn-3',
+    topic: 'Functions',
+    title: 'Add Machine',
+    teach:
+      'Machines can take more than one input! This one takes two numbers and ' +
+      'returns them added together.',
+    task: 'Finish `add` so it returns the two inputs added together.',
+    starter:
+      'function add(a, b) {\n  return ;\n}\n\nconsole.log(add(2, 3));',
+    hints: [
+      'Add the two inputs: a + b',
+      'It looks like: return a + b;',
+      'Type exactly: return a + b;',
+    ],
+    checks: [
+      { label: 'add(2, 3) is 5', expr: 'add(2, 3) === 5' },
+      { label: 'add(10, 4) is 14', expr: 'add(10, 4) === 14' },
+    ],
+    expectedOutput: ['5'],
+    success: 'add(2, 3) = 5. You built a calculator! 🧮',
   },
 ]
 
