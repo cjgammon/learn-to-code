@@ -674,6 +674,44 @@ export const PUZZLES = [
     success: 'Two, four, six, eight... counting by twos! 👟',
   },
   {
+    id: 'loop-4',
+    topic: 'Loops',
+    title: 'Choose Where to Start',
+    teach:
+      'A for loop has three parts inside its `( )`, split by semicolons. The FIRST ' +
+      'part says where to start — `let i = 1` begins counting at 1. Change that ' +
+      'start number and the loop begins somewhere else.',
+    task: 'Make this loop start at 3 so it prints 3, 4, 5.',
+    starter: 'for (let i = ; i <= 5; i = i + 1) {\n  console.log(i);\n}',
+    hints: [
+      'The first part sets the start: let i = ?',
+      'To begin at 3, start the counter at 3.',
+      'Fill the blank: let i = 3',
+    ],
+    checks: [],
+    expectedOutput: ['3', '4', '5'],
+    success: 'Started at 3 — you set the loop’s first step! 🏁',
+  },
+  {
+    id: 'loop-5',
+    topic: 'Loops',
+    title: 'Choose When to Stop',
+    teach:
+      'The MIDDLE part of a for loop is the question "should I keep going?" The ' +
+      'loop runs as long as it is true and stops when it turns false. `i <= 3` ' +
+      'means keep going while i is 3 or less.',
+    task: 'Fill in the middle part so this loop stops after 3, printing 1, 2, 3.',
+    starter: 'for (let i = 1; ; i = i + 1) {\n  console.log(i);\n}',
+    hints: [
+      'The middle part decides how long to keep going: i <= ?',
+      'To stop after 3, keep going while i is 3 or less.',
+      'Fill the blank: i <= 3',
+    ],
+    checks: [],
+    expectedOutput: ['1', '2', '3'],
+    success: 'Stopped right at 3 — you control how long it runs! 🛑',
+  },
+  {
     id: 'loop-challenge',
     topic: 'Loops',
     title: 'Challenge: Countdown',
