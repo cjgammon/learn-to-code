@@ -801,6 +801,49 @@ export const PUZZLES = [
     success: 'add(2, 3) = 5. You built a calculator! 🧮',
   },
   {
+    id: 'fn-4',
+    topic: 'Functions',
+    title: 'Give It an Input',
+    teach:
+      "So far the inputs were written for you. The words inside a function's `( )` " +
+      'are its inputs (called parameters) — empty boxes the function fills with ' +
+      'whatever you pass in. This machine uses `price`, but its input box is empty!',
+    task: 'Add the input `price` inside the parentheses so the function knows what `price` is.',
+    starter:
+      'function addTax( ) {\n  return price + 2;\n}\n\nconsole.log(addTax(10));',
+    hints: [
+      'The input name goes inside the ( ) after the function name.',
+      'The body uses price, so the input must be called price.',
+      'Make it read: function addTax(price) {',
+    ],
+    checks: [
+      { label: 'addTax(10) is 12', expr: 'addTax(10) === 12' },
+      { label: 'addTax(5) is 7', expr: 'addTax(5) === 7' },
+    ],
+    expectedOutput: ['12'],
+    success: 'Input connected — addTax(10) = 12! 🧾',
+  },
+  {
+    id: 'fn-5',
+    topic: 'Functions',
+    title: 'Call It Yourself',
+    teach:
+      "Building a function isn't enough — you have to CALL it to make it run. " +
+      'Write its name with `( )` and put the input inside, like `shout("hi")`. ' +
+      'We called the machines for you before; now it’s your turn!',
+    task: 'Call the `shout` machine with "hi" so the output shows HI!.',
+    starter:
+      'function shout(word) {\n  return word.toUpperCase() + "!";\n}\n\n// Call shout with "hi" inside the log:\nconsole.log();',
+    hints: [
+      'Call it by writing the name and parentheses: shout(...)',
+      'Put "hi" (in quotes) inside the parentheses.',
+      'Type exactly: console.log(shout("hi"));',
+    ],
+    checks: [],
+    expectedOutput: ['HI!'],
+    success: 'HI! You called the machine all by yourself! 📣',
+  },
+  {
     id: 'fn-challenge',
     topic: 'Functions',
     title: 'Challenge: Ticket Machine',
@@ -1122,6 +1165,51 @@ export const PUZZLES = [
     ],
     expectedOutput: ['Rex says woof!'],
     success: 'Rex says woof! Methods make objects do things! 🐕',
+  },
+  {
+    id: 'class-4',
+    topic: 'Blueprints',
+    title: 'Save Two Details',
+    teach:
+      'A constructor can save as many details as you like — each one gets its own ' +
+      '`this.` line. This blueprint already saves the name. Now you write the line ' +
+      'that saves the age yourself!',
+    task: 'Add a line in the constructor that saves the `age` input into `this.age`.',
+    starter:
+      'class Hero {\n  constructor(name, age) {\n    this.name = name;\n    // Save the age too:\n\n  }\n}\n\nlet h = new Hero("Zara", 20);\nconsole.log(h.age);',
+    hints: [
+      'Copy the pattern of the name line, but for age.',
+      'It looks like: this.age = age;',
+      'Type exactly: this.age = age;',
+    ],
+    checks: [
+      { label: 'new Hero("Zara", 20).age is 20', expr: 'new Hero("Zara", 20).age === 20' },
+      { label: 'still saves the name', expr: 'new Hero("Zara", 20).name === "Zara"' },
+    ],
+    expectedOutput: ['20'],
+    success: 'Two details saved — name AND age! 🦸',
+  },
+  {
+    id: 'class-5',
+    topic: 'Blueprints',
+    title: 'Add a Method',
+    teach:
+      'Last time you filled in a method that was already there. Now write your OWN ' +
+      'from scratch! Inside a class a method is just a name, `( )`, and `{ }` — no ' +
+      '`function` word needed. Put it inside the class, below the constructor.',
+    task: 'Add a `bark()` method to the Dog class that returns "Woof!".',
+    starter:
+      'class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n  // Add a bark() method that returns "Woof!"\n\n}\n\nlet d = new Dog("Rex");\nconsole.log(d.bark());',
+    hints: [
+      'A method looks like: bark() { ... } — no "function" word inside a class.',
+      'Inside the { }, return the word "Woof!" (in quotes).',
+      'Add this inside the class:\nbark() {\n  return "Woof!";\n}',
+    ],
+    checks: [
+      { label: 'new Dog("Rex").bark() returns "Woof!"', expr: 'new Dog("Rex").bark() === "Woof!"' },
+    ],
+    expectedOutput: ['Woof!'],
+    success: 'Woof! You wrote a whole method yourself! 🐕',
   },
   {
     id: 'class-challenge',
