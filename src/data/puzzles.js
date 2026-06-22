@@ -548,6 +548,50 @@ export const PUZZLES = [
     success: "n is 8 — that's medium! 🥤",
   },
   {
+    id: 'if-4',
+    topic: 'Decisions',
+    title: 'Add Your Own Else',
+    teach:
+      "So far the if and else were already built for you. Now you write your OWN! " +
+      'An `else` catches everything the `if` missed — it runs when the test was ' +
+      'false. It always goes right after the if\'s closing `}`.',
+    task:
+      'The `if` already handles when the shop is open. Add your own `else` so that ' +
+      'when it is NOT open, `sign` becomes "Closed".',
+    starter:
+      'let isOpen = false;\nlet sign = "";\n\n// Add your own else after this if block:\nif (isOpen) {\n  sign = "Open";\n}\n\n\nconsole.log(sign);',
+    hints: [
+      "An else goes right after the if's closing } — like: else { ... }",
+      'Inside the else, set sign to "Closed".',
+      'Add this after the if block:\nelse {\n  sign = "Closed";\n}',
+    ],
+    checks: [{ label: 'sign is "Closed" when not open', expr: 'sign === "Closed"' }],
+    expectedOutput: ['Closed'],
+    success: 'Shop is closed — you wrote your first else! 🚪',
+  },
+  {
+    id: 'if-5',
+    topic: 'Decisions',
+    title: 'Add Your Own Else If',
+    teach:
+      'You can slot a new choice into the MIDDLE of an if/else using `else if`. ' +
+      'It needs its own question inside `( )`. The computer only checks it if the ' +
+      'first `if` was false — and it goes between the `if` and the `else`.',
+    task:
+      'Green means "Go" and everything else means "Stop". Add your own `else if` ' +
+      'so a YELLOW light makes `action` become "Slow".',
+    starter:
+      'let light = "yellow";\nlet action = "";\n\n// Add an else if between the if and the else:\nif (light === "green") {\n  action = "Go";\n} else {\n  action = "Stop";\n}\n\nconsole.log(action);',
+    hints: [
+      'An else if goes between the if and the else, and needs its own ( ) test.',
+      'Test for yellow: else if (light === "yellow") { ... }',
+      'Put this between the if block and the else:\nelse if (light === "yellow") {\n  action = "Slow";\n}',
+    ],
+    checks: [{ label: 'action is "Slow" for a yellow light', expr: 'action === "Slow"' }],
+    expectedOutput: ['Slow'],
+    success: 'Yellow means slow — you added a whole new branch! 🚦',
+  },
+  {
     id: 'if-challenge',
     topic: 'Decisions',
     title: 'Challenge: Medal Ceremony',
