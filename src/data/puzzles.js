@@ -54,6 +54,21 @@ export const TOPICS = [
     emoji: '⚙️',
     blurb: 'Build your own commands.',
   },
+  {
+    title: 'Lists',
+    emoji: '📋',
+    blurb: 'Keep many things together.',
+  },
+  {
+    title: 'Objects',
+    emoji: '🗂️',
+    blurb: 'Things with labels and details.',
+  },
+  {
+    title: 'Blueprints',
+    emoji: '🏗️',
+    blurb: 'Make as many as you need.',
+  },
 ]
 
 export const PUZZLES = [
@@ -728,6 +743,329 @@ export const PUZZLES = [
     ],
     expectedOutput: ['true'],
     success: 'Tall enough to ride — your machine makes its own decisions! 🎢',
+  },
+
+  // ------------------------------- LISTS --------------------------------
+  {
+    id: 'arr-1',
+    topic: 'Lists',
+    title: 'Make a List',
+    teach:
+      'Sometimes one box is not enough — you need a whole LIST of things! ' +
+      'In JavaScript, a list is called an array. You write it with square ' +
+      'brackets `[ ]` and separate each item with a comma.',
+    task: 'Fill in the `colors` list with three colors of your choice.',
+    starter:
+      '// A list goes inside [ ] with commas between items.\nlet colors = ;\n\nconsole.log(colors);',
+    hints: [
+      'Wrap each color in quotes and separate them with commas.',
+      'It looks like: ["red", "blue", "green"]',
+      'Type exactly: let colors = ["red", "blue", "green"];',
+    ],
+    checks: [
+      { label: 'colors is a list (array)', expr: 'Array.isArray(colors)' },
+      { label: 'colors has 3 items', expr: 'colors.length === 3' },
+    ],
+    success: 'Three colors in one box — lists are powerful! 🎨',
+  },
+  {
+    id: 'arr-2',
+    topic: 'Lists',
+    title: 'Grab One Item',
+    teach:
+      'Every item in a list has a slot number. The first slot is 0, the ' +
+      'second is 1, and so on. Write `list[0]` to grab the first item, ' +
+      '`list[1]` for the second. Counting from zero is a programmer thing!',
+    task: 'Get the FIRST fruit from `fruits` into `first`.',
+    starter:
+      'let fruits = ["apple", "banana", "cherry"];\n\n// Grab the first item (slot 0):\nlet first = ;\n\nconsole.log(first);',
+    hints: [
+      'Use the list name and square brackets with the slot number.',
+      'The first slot is 0: fruits[0]',
+      'Type exactly: let first = fruits[0];',
+    ],
+    checks: [
+      { label: 'first is "apple"', expr: 'first === "apple"' },
+    ],
+    expectedOutput: ['apple'],
+    success: 'apple — slot zero, the very first! 🍎',
+  },
+  {
+    id: 'arr-3',
+    topic: 'Lists',
+    title: 'Add to a List',
+    teach:
+      '`.push()` adds a new item to the END of a list. Think of it like ' +
+      'adding something to the bottom of a shopping list.',
+    task: 'Use `.push()` to add one more snack to the `snacks` list.',
+    starter:
+      'let snacks = ["chips", "popcorn"];\n\n// Add a new snack to the end:\n\n\nconsole.log(snacks.length);',
+    hints: [
+      'Call .push() on the list with the new item inside the parentheses.',
+      'It looks like: snacks.push("something");',
+      'Try exactly: snacks.push("pretzels");',
+    ],
+    checks: [
+      { label: 'snacks now has 3 items', expr: 'snacks.length === 3' },
+      { label: 'snacks is still a list', expr: 'Array.isArray(snacks)' },
+    ],
+    expectedOutput: ['3'],
+    success: 'List now has 3 snacks. Push is handy! 🍿',
+  },
+  {
+    id: 'arr-4',
+    topic: 'Lists',
+    title: 'Count the Items',
+    teach:
+      'Just like words have `.length` to count letters, lists have `.length` ' +
+      'to count items. Same trick, different thing!',
+    task: 'Make `count` equal to how many planets are in the list.',
+    starter:
+      'let planets = ["Mercury", "Venus", "Earth", "Mars"];\n\n// How many planets? Use .length\nlet count = ;\n\nconsole.log(count);',
+    hints: [
+      'Add .length to the list name: planets.length',
+      'It looks like: let count = planets.length;',
+      'Type exactly: let count = planets.length;',
+    ],
+    checks: [
+      { label: 'count is a number', expr: "typeof count === 'number'" },
+      { label: 'count equals 4', expr: 'count === 4' },
+    ],
+    expectedOutput: ['4'],
+    success: '4 planets in the list — you counted like a computer! 🪐',
+  },
+  {
+    id: 'arr-challenge',
+    topic: 'Lists',
+    title: 'Challenge: Guest List',
+    teach:
+      "Challenge time — you've got this! Grab a specific guest by slot number " +
+      'AND count the whole list. Two list skills in one puzzle.',
+    task:
+      'Get the SECOND guest (slot 1) into `second`. Count all guests into `total`. ' +
+      'Both are already logged for you.',
+    starter:
+      'let guests = ["Alice", "Bob", "Charlie", "Dana"];\n\n// Second guest (slot 1):\nlet second = ;\n\n// How many guests total?\nlet total = ;\n\nconsole.log(second);\nconsole.log(total);',
+    hints: [
+      'The second item is at slot 1: guests[1]',
+      'Count with .length: guests.length',
+      'Try:\nlet second = guests[1];\nlet total = guests.length;',
+    ],
+    checks: [
+      { label: 'second is "Bob"', expr: 'second === "Bob"' },
+      { label: 'total is 4', expr: 'total === 4' },
+    ],
+    expectedOutput: ['Bob', '4'],
+    success: 'Bob is guest #2, 4 guests total — list master! 🎉',
+  },
+
+  // ------------------------------ OBJECTS ------------------------------
+  {
+    id: 'obj-1',
+    topic: 'Objects',
+    title: 'Build a Profile',
+    teach:
+      'An object is like a mini-profile for one thing. It holds several ' +
+      'labeled details inside curly braces `{ }`. Each label (called a key) ' +
+      'is followed by `:` and then the value. Commas go between each detail.',
+    task: 'Fill in the `pet` object: give it the name "Spark" and age 3.',
+    starter:
+      '// An object holds labeled details.\nlet pet = { name: , age: };\n\nconsole.log(pet.name, pet.age);',
+    hints: [
+      'name gets a word (in quotes), age gets a number.',
+      'It looks like: { name: "Spark", age: 3 }',
+      'Type exactly: let pet = { name: "Spark", age: 3 };',
+    ],
+    checks: [
+      { label: 'pet.name is "Spark"', expr: 'pet.name === "Spark"' },
+      { label: 'pet.age is 3', expr: 'pet.age === 3' },
+    ],
+    expectedOutput: ['Spark 3'],
+    success: 'Profile built — Spark is 3 years old! 🐾',
+  },
+  {
+    id: 'obj-2',
+    topic: 'Objects',
+    title: 'Read a Detail',
+    teach:
+      'To read one detail from an object, use a dot: `thing.label`. ' +
+      'It is like asking the object "what is your name?" and it answers.',
+    task: "Read the hero's name into `heroName` using dot notation.",
+    starter:
+      'let hero = { name: "Zara", level: 7, weapon: "bow" };\n\n// Read the name with a dot:\nlet heroName = ;\n\nconsole.log(heroName);',
+    hints: [
+      'Use the object name, a dot, then the key: hero.name',
+      'It looks like: let heroName = hero.name;',
+      'Type exactly: let heroName = hero.name;',
+    ],
+    checks: [
+      { label: 'heroName is "Zara"', expr: 'heroName === "Zara"' },
+    ],
+    expectedOutput: ['Zara'],
+    success: "Zara — the hero's name is yours to read! ⚔️",
+  },
+  {
+    id: 'obj-3',
+    topic: 'Objects',
+    title: 'Change a Detail',
+    teach:
+      'To update a detail, use the dot and a new `=`. It is just like ' +
+      'changing a variable, but you point to the specific label inside the object.',
+    task: "It's Spark's birthday! Change `pet.age` from 3 to 4.",
+    starter:
+      'let pet = { name: "Spark", age: 3 };\n\n// Update the age (the pet had a birthday!):\n\n\nconsole.log(pet.age);',
+    hints: [
+      'Use the dot to point to age, then assign a new value.',
+      'It looks like: pet.age = 4;',
+      'Type exactly: pet.age = 4;',
+    ],
+    checks: [
+      { label: 'pet.age is now 4', expr: 'pet.age === 4' },
+    ],
+    expectedOutput: ['4'],
+    success: 'Happy birthday Spark — now 4 years old! 🎂',
+  },
+  {
+    id: 'obj-4',
+    topic: 'Objects',
+    title: 'Add a New Detail',
+    teach:
+      'You can add a brand-new label to an object at any time — just assign ' +
+      'to a label that does not exist yet. The object grows!',
+    task: 'Add a `brand` detail set to "Turbo" to the `car` object.',
+    starter:
+      'let car = { color: "red", doors: 4 };\n\n// Add a brand-new detail:\n\n\nconsole.log(car.brand);',
+    hints: [
+      'Use the dot and a new label name: car.brand = "something"',
+      'The value should be "Turbo" (in quotes).',
+      'Type exactly: car.brand = "Turbo";',
+    ],
+    checks: [
+      { label: 'car.brand is "Turbo"', expr: 'car.brand === "Turbo"' },
+    ],
+    expectedOutput: ['Turbo'],
+    success: 'Turbo added — the car got an upgrade! 🚗',
+  },
+  {
+    id: 'obj-challenge',
+    topic: 'Objects',
+    title: 'Challenge: Hero Stats',
+    teach:
+      "Challenge time! Build the whole object yourself from a brief. " +
+      "No blanks — you decide how to write it. You've got this! 🤖",
+    task:
+      'Create a `hero` object with: a `name` (any string), `hp` set to 100, ' +
+      'and `level` set to 1. The log is already there for you.',
+    starter:
+      '// Build a hero object with name, hp, and level.\n\n\nconsole.log(hero.name, "HP:", hero.hp);',
+    hints: [
+      'Start with: let hero = { ... };',
+      'Put all three details inside: name, hp, and level.',
+      'Try:\nlet hero = { name: "Zara", hp: 100, level: 1 };',
+    ],
+    checks: [
+      { label: 'hero.name is a string', expr: "typeof hero.name === 'string'" },
+      { label: 'hero.name is not empty', expr: 'hero.name.length > 0' },
+      { label: 'hero.hp is 100', expr: 'hero.hp === 100' },
+      { label: 'hero.level is 1', expr: 'hero.level === 1' },
+    ],
+    success: 'Hero stats locked in — ready for adventure! 🗡️',
+  },
+
+  // --------------------------- BLUEPRINTS ------------------------------
+  {
+    id: 'class-1',
+    topic: 'Blueprints',
+    title: 'Your First Blueprint',
+    teach:
+      'A class is a BLUEPRINT for stamping out objects. When you build a ' +
+      'new one, the `constructor` runs and sets it up. Inside, `this` means ' +
+      '"the object being made right now." Save details with `this.label = value`.',
+    task: 'Fill in the constructor so it saves the `name` input into `this.name`.',
+    starter:
+      'class Animal {\n  constructor(name) {\n    this.name = ;\n  }\n}\n\nlet dog = new Animal("Rex");\nconsole.log(dog.name);',
+    hints: [
+      'Save the input into this.name using the = sign.',
+      'It looks like: this.name = name;',
+      'Type exactly: this.name = name;',
+    ],
+    checks: [
+      { label: 'new Animal("Rex").name is "Rex"', expr: 'new Animal("Rex").name === "Rex"' },
+      { label: 'new Animal("Pixel").name is "Pixel"', expr: 'new Animal("Pixel").name === "Pixel"' },
+    ],
+    expectedOutput: ['Rex'],
+    success: 'Blueprint works — every Animal remembers its name! 🐾',
+  },
+  {
+    id: 'class-2',
+    topic: 'Blueprints',
+    title: 'Stamp Out Two',
+    teach:
+      'The magic of blueprints is making as many as you like — each one ' +
+      'gets its own details. Use `new ClassName(value)` each time.',
+    task: 'Use the Animal blueprint to make a `cat` named "Whiskers" and a `bird` named "Tweety".',
+    starter:
+      'class Animal {\n  constructor(name) {\n    this.name = name;\n  }\n}\n\nlet cat = new Animal();\nlet bird = new Animal();\n\nconsole.log(cat.name);\nconsole.log(bird.name);',
+    hints: [
+      'Pass the name in the parentheses: new Animal("name")',
+      'First: new Animal("Whiskers"), second: new Animal("Tweety")',
+      'Fill in:\nlet cat = new Animal("Whiskers");\nlet bird = new Animal("Tweety");',
+    ],
+    checks: [
+      { label: 'cat.name is "Whiskers"', expr: 'cat.name === "Whiskers"' },
+      { label: 'bird.name is "Tweety"', expr: 'bird.name === "Tweety"' },
+    ],
+    expectedOutput: ['Whiskers', 'Tweety'],
+    success: 'Two animals, one blueprint — stamp away! 🐱🐦',
+  },
+  {
+    id: 'class-3',
+    topic: 'Blueprints',
+    title: 'Teach It a Trick',
+    teach:
+      'Classes can have METHODS — functions that belong to every object ' +
+      'you stamp out. Inside a method, `this` still means "the one being used ' +
+      'right now," so `this.name` gives you THAT animal\'s name.',
+    task: 'Fill in `speak()` so it returns the animal\'s name + " says woof!".',
+    starter:
+      'class Animal {\n  constructor(name) {\n    this.name = name;\n  }\n  speak() {\n    return ;\n  }\n}\n\nlet dog = new Animal("Rex");\nconsole.log(dog.speak());',
+    hints: [
+      'Use a template literal with this.name inside it.',
+      'It reads: `${this.name} says woof!`',
+      'Type exactly: return `${this.name} says woof!`;',
+    ],
+    checks: [
+      { label: 'Rex says woof!', expr: 'new Animal("Rex").speak() === "Rex says woof!"' },
+      { label: 'Bit says woof!', expr: 'new Animal("Bit").speak() === "Bit says woof!"' },
+    ],
+    expectedOutput: ['Rex says woof!'],
+    success: 'Rex says woof! Methods make objects do things! 🐕',
+  },
+  {
+    id: 'class-challenge',
+    topic: 'Blueprints',
+    title: 'Challenge: Robot Builder',
+    teach:
+      "Final challenge — the big one! Write a whole class yourself: " +
+      "constructor AND a method. Everything you've learned about blueprints " +
+      "in one puzzle. You can do this! 🤖",
+    task:
+      'Write a `Robot` class. The constructor takes a `name` and saves it. ' +
+      '`greet()` returns "Hi, I am " + the robot\'s name.',
+    starter:
+      '// Write the Robot class here.\n// constructor(name) saves the name.\n// greet() returns "Hi, I am " + the name.\n\n\nlet r = new Robot("Bit");\nconsole.log(r.greet());',
+    hints: [
+      'Start with: class Robot { constructor(name) { this.name = name; } }',
+      'Add a greet() method inside the class that returns a template literal.',
+      'Try:\nclass Robot {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    return `Hi, I am ${this.name}`;\n  }\n}',
+    ],
+    checks: [
+      { label: 'new Robot("Bit").greet() returns "Hi, I am Bit"', expr: 'new Robot("Bit").greet() === "Hi, I am Bit"' },
+      { label: 'new Robot("R2").greet() returns "Hi, I am R2"', expr: 'new Robot("R2").greet() === "Hi, I am R2"' },
+      { label: 'Robot saves the name', expr: 'new Robot("X").name === "X"' },
+    ],
+    expectedOutput: ['Hi, I am Bit'],
+    success: 'Hi, I am Bit — you built a real blueprint! 🏆',
   },
 ]
 
