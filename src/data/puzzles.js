@@ -548,6 +548,50 @@ export const PUZZLES = [
     success: "n is 8 — that's medium! 🥤",
   },
   {
+    id: 'if-4',
+    topic: 'Decisions',
+    title: 'Add Your Own Else',
+    teach:
+      "So far the if and else were already built for you. Now you write your OWN! " +
+      'An `else` catches everything the `if` missed — it runs when the test was ' +
+      'false. It always goes right after the if\'s closing `}`.',
+    task:
+      'The `if` already handles when the shop is open. Add your own `else` so that ' +
+      'when it is NOT open, `sign` becomes "Closed".',
+    starter:
+      'let isOpen = false;\nlet sign = "";\n\n// Add your own else after this if block:\nif (isOpen) {\n  sign = "Open";\n}\n\n\nconsole.log(sign);',
+    hints: [
+      "An else goes right after the if's closing } — like: else { ... }",
+      'Inside the else, set sign to "Closed".',
+      'Add this after the if block:\nelse {\n  sign = "Closed";\n}',
+    ],
+    checks: [{ label: 'sign is "Closed" when not open', expr: 'sign === "Closed"' }],
+    expectedOutput: ['Closed'],
+    success: 'Shop is closed — you wrote your first else! 🚪',
+  },
+  {
+    id: 'if-5',
+    topic: 'Decisions',
+    title: 'Add Your Own Else If',
+    teach:
+      'You can slot a new choice into the MIDDLE of an if/else using `else if`. ' +
+      'It needs its own question inside `( )`. The computer only checks it if the ' +
+      'first `if` was false — and it goes between the `if` and the `else`.',
+    task:
+      'Green means "Go" and everything else means "Stop". Add your own `else if` ' +
+      'so a YELLOW light makes `action` become "Slow".',
+    starter:
+      'let light = "yellow";\nlet action = "";\n\n// Add an else if between the if and the else:\nif (light === "green") {\n  action = "Go";\n} else {\n  action = "Stop";\n}\n\nconsole.log(action);',
+    hints: [
+      'An else if goes between the if and the else, and needs its own ( ) test.',
+      'Test for yellow: else if (light === "yellow") { ... }',
+      'Put this between the if block and the else:\nelse if (light === "yellow") {\n  action = "Slow";\n}',
+    ],
+    checks: [{ label: 'action is "Slow" for a yellow light', expr: 'action === "Slow"' }],
+    expectedOutput: ['Slow'],
+    success: 'Yellow means slow — you added a whole new branch! 🚦',
+  },
+  {
     id: 'if-challenge',
     topic: 'Decisions',
     title: 'Challenge: Medal Ceremony',
@@ -628,6 +672,44 @@ export const PUZZLES = [
     checks: [],
     expectedOutput: ['2', '4', '6', '8', '10'],
     success: 'Two, four, six, eight... counting by twos! 👟',
+  },
+  {
+    id: 'loop-4',
+    topic: 'Loops',
+    title: 'Choose Where to Start',
+    teach:
+      'A for loop has three parts inside its `( )`, split by semicolons. The FIRST ' +
+      'part says where to start — `let i = 1` begins counting at 1. Change that ' +
+      'start number and the loop begins somewhere else.',
+    task: 'Make this loop start at 3 so it prints 3, 4, 5.',
+    starter: 'for (let i = ; i <= 5; i = i + 1) {\n  console.log(i);\n}',
+    hints: [
+      'The first part sets the start: let i = ?',
+      'To begin at 3, start the counter at 3.',
+      'Fill the blank: let i = 3',
+    ],
+    checks: [],
+    expectedOutput: ['3', '4', '5'],
+    success: 'Started at 3 — you set the loop’s first step! 🏁',
+  },
+  {
+    id: 'loop-5',
+    topic: 'Loops',
+    title: 'Choose When to Stop',
+    teach:
+      'The MIDDLE part of a for loop is the question "should I keep going?" The ' +
+      'loop runs as long as it is true and stops when it turns false. `i <= 3` ' +
+      'means keep going while i is 3 or less.',
+    task: 'Fill in the middle part so this loop stops after 3, printing 1, 2, 3.',
+    starter: 'for (let i = 1; ; i = i + 1) {\n  console.log(i);\n}',
+    hints: [
+      'The middle part decides how long to keep going: i <= ?',
+      'To stop after 3, keep going while i is 3 or less.',
+      'Fill the blank: i <= 3',
+    ],
+    checks: [],
+    expectedOutput: ['1', '2', '3'],
+    success: 'Stopped right at 3 — you control how long it runs! 🛑',
   },
   {
     id: 'loop-challenge',
@@ -717,6 +799,49 @@ export const PUZZLES = [
     ],
     expectedOutput: ['5'],
     success: 'add(2, 3) = 5. You built a calculator! 🧮',
+  },
+  {
+    id: 'fn-4',
+    topic: 'Functions',
+    title: 'Give It an Input',
+    teach:
+      "So far the inputs were written for you. The words inside a function's `( )` " +
+      'are its inputs (called parameters) — empty boxes the function fills with ' +
+      'whatever you pass in. This machine uses `price`, but its input box is empty!',
+    task: 'Add the input `price` inside the parentheses so the function knows what `price` is.',
+    starter:
+      'function addTax( ) {\n  return price + 2;\n}\n\nconsole.log(addTax(10));',
+    hints: [
+      'The input name goes inside the ( ) after the function name.',
+      'The body uses price, so the input must be called price.',
+      'Make it read: function addTax(price) {',
+    ],
+    checks: [
+      { label: 'addTax(10) is 12', expr: 'addTax(10) === 12' },
+      { label: 'addTax(5) is 7', expr: 'addTax(5) === 7' },
+    ],
+    expectedOutput: ['12'],
+    success: 'Input connected — addTax(10) = 12! 🧾',
+  },
+  {
+    id: 'fn-5',
+    topic: 'Functions',
+    title: 'Call It Yourself',
+    teach:
+      "Building a function isn't enough — you have to CALL it to make it run. " +
+      'Write its name with `( )` and put the input inside, like `shout("hi")`. ' +
+      'We called the machines for you before; now it’s your turn!',
+    task: 'Call the `shout` machine with "hi" so the output shows HI!.',
+    starter:
+      'function shout(word) {\n  return word.toUpperCase() + "!";\n}\n\n// Call shout with "hi" inside the log:\nconsole.log();',
+    hints: [
+      'Call it by writing the name and parentheses: shout(...)',
+      'Put "hi" (in quotes) inside the parentheses.',
+      'Type exactly: console.log(shout("hi"));',
+    ],
+    checks: [],
+    expectedOutput: ['HI!'],
+    success: 'HI! You called the machine all by yourself! 📣',
   },
   {
     id: 'fn-challenge',
@@ -1040,6 +1165,51 @@ export const PUZZLES = [
     ],
     expectedOutput: ['Rex says woof!'],
     success: 'Rex says woof! Methods make objects do things! 🐕',
+  },
+  {
+    id: 'class-4',
+    topic: 'Blueprints',
+    title: 'Save Two Details',
+    teach:
+      'A constructor can save as many details as you like — each one gets its own ' +
+      '`this.` line. This blueprint already saves the name. Now you write the line ' +
+      'that saves the age yourself!',
+    task: 'Add a line in the constructor that saves the `age` input into `this.age`.',
+    starter:
+      'class Hero {\n  constructor(name, age) {\n    this.name = name;\n    // Save the age too:\n\n  }\n}\n\nlet h = new Hero("Zara", 20);\nconsole.log(h.age);',
+    hints: [
+      'Copy the pattern of the name line, but for age.',
+      'It looks like: this.age = age;',
+      'Type exactly: this.age = age;',
+    ],
+    checks: [
+      { label: 'new Hero("Zara", 20).age is 20', expr: 'new Hero("Zara", 20).age === 20' },
+      { label: 'still saves the name', expr: 'new Hero("Zara", 20).name === "Zara"' },
+    ],
+    expectedOutput: ['20'],
+    success: 'Two details saved — name AND age! 🦸',
+  },
+  {
+    id: 'class-5',
+    topic: 'Blueprints',
+    title: 'Add a Method',
+    teach:
+      'Last time you filled in a method that was already there. Now write your OWN ' +
+      'from scratch! Inside a class a method is just a name, `( )`, and `{ }` — no ' +
+      '`function` word needed. Put it inside the class, below the constructor.',
+    task: 'Add a `bark()` method to the Dog class that returns "Woof!".',
+    starter:
+      'class Dog {\n  constructor(name) {\n    this.name = name;\n  }\n  // Add a bark() method that returns "Woof!"\n\n}\n\nlet d = new Dog("Rex");\nconsole.log(d.bark());',
+    hints: [
+      'A method looks like: bark() { ... } — no "function" word inside a class.',
+      'Inside the { }, return the word "Woof!" (in quotes).',
+      'Add this inside the class:\nbark() {\n  return "Woof!";\n}',
+    ],
+    checks: [
+      { label: 'new Dog("Rex").bark() returns "Woof!"', expr: 'new Dog("Rex").bark() === "Woof!"' },
+    ],
+    expectedOutput: ['Woof!'],
+    success: 'Woof! You wrote a whole method yourself! 🐕',
   },
   {
     id: 'class-challenge',
