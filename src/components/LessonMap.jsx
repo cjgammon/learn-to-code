@@ -64,7 +64,6 @@ export default function LessonMap({ isSolved, onPick, solvedCount }) {
                       (solved ? ' card--solved' : '') +
                       (locked ? ' card--locked' : '')
                     }
-                    disabled={locked}
                     onClick={() => onPick(puzzle.id)}
                   >
                     <span className="card__badge">
