@@ -140,6 +140,29 @@ export const PUZZLES = [
     success: 'Ding! You reached level 2! 🆙',
   },
   {
+    id: 'vars-fun',
+    topic: 'Variables',
+    title: 'Just for Fun: Silly Sentence',
+    teach:
+      "Here's why variables are so cool: change ONE box and the whole story " +
+      'changes! Fill the boxes with anything silly, run it, then swap a word and ' +
+      'run again to make a brand-new sentence.',
+    task: 'Fill the three boxes with anything silly — two words and a number.',
+    starter:
+      '// Fill the boxes with anything silly!\nlet animal = ;\nlet action = ;\nlet number = ;\n\nconsole.log("The", animal, "wanted to", action, number, "times!");',
+    hints: [
+      'animal and action are words (use quotes); number is just a number.',
+      'Like: let animal = "duck"; let action = "dance"; let number = 7;',
+      'Try:\nlet animal = "duck";\nlet action = "dance";\nlet number = 7;',
+    ],
+    checks: [
+      { label: 'animal is a word', expr: "typeof animal === 'string' && animal.length > 0" },
+      { label: 'action is a word', expr: "typeof action === 'string' && action.length > 0" },
+      { label: 'number is a number', expr: "typeof number === 'number'" },
+    ],
+    success: 'Ha! Swap any box and the whole sentence changes — that is variable power! 🎭',
+  },
+  {
     id: 'vars-challenge',
     topic: 'Variables',
     title: 'Challenge: Hero Card',
@@ -232,6 +255,28 @@ export const PUZZLES = [
       { label: 'each equals 3', expr: 'each === 3' },
     ],
     success: 'Everyone gets 3 candies. Fair and sweet! 🍬',
+  },
+  {
+    id: 'math-fun',
+    topic: 'Math',
+    title: 'Just for Fun: Hours Alive',
+    teach:
+      'Computers crunch huge numbers in a blink. Multiply your age by the days in a ' +
+      'year and the hours in a day to see how many HOURS old you are. Change your ' +
+      'age and run again to watch the number explode!',
+    task: 'Multiply all three boxes together into `hoursAlive`.',
+    starter:
+      'let ageInYears = 10;\nlet daysPerYear = 365;\nlet hoursPerDay = 24;\n\n// Multiply all three to see how many hours old you are!\nlet hoursAlive = ;\n\nconsole.log("Whoa, you are", hoursAlive, "hours old!");',
+    hints: [
+      'Multiply with the * star, all three together.',
+      'Like: ageInYears * daysPerYear * hoursPerDay',
+      'Try: let hoursAlive = ageInYears * daysPerYear * hoursPerDay;',
+    ],
+    checks: [
+      { label: 'hoursAlive is a number', expr: "typeof hoursAlive === 'number'" },
+      { label: 'hoursAlive multiplies all three', expr: 'hoursAlive === ageInYears * daysPerYear * hoursPerDay' },
+    ],
+    success: 'Math turned your age into a giant number! Change your age and run again. 🤯',
   },
   {
     id: 'math-challenge',
@@ -365,6 +410,28 @@ export const PUZZLES = [
     success: 'Bit is 10 — now you can show anything you like! 📢',
   },
   {
+    id: 'str-fun',
+    topic: 'Strings',
+    title: 'Just for Fun: Superhero Name',
+    teach:
+      'Strings let you build names that never existed before! Glue an adjective and ' +
+      'an animal together, then SHOUT it with .toUpperCase(). Pick any silly words ' +
+      'and run again for a whole new hero.',
+    task: 'Build `heroName` by joining the two words, then make it ALL CAPS.',
+    starter:
+      'let adjective = "Flaming";\nlet animal = "Pizza";\n\n// Glue them into a name and make it LOUD!\nlet heroName = ;\n\nconsole.log("Behold... " + heroName + "!");',
+    hints: [
+      'Join them with a space, then add .toUpperCase() to the whole thing.',
+      'Backticks help: `${adjective} ${animal}`.toUpperCase()',
+      'Try: let heroName = `${adjective} ${animal}`.toUpperCase();',
+    ],
+    checks: [
+      { label: 'heroName is a word', expr: "typeof heroName === 'string' && heroName.length > 0" },
+      { label: 'heroName is ALL CAPS', expr: 'heroName === heroName.toUpperCase()' },
+    ],
+    success: 'FLAMING PIZZA to the rescue! Strings build any name you can dream up. 🦸',
+  },
+  {
     id: 'str-challenge',
     topic: 'Strings',
     title: 'Challenge: Make a Poster',
@@ -465,6 +532,28 @@ export const PUZZLES = [
     ],
     checks: [{ label: 'isNight is false', expr: 'isNight === false' }],
     success: 'Day flipped to night! 🌙',
+  },
+  {
+    id: 'bool-fun',
+    topic: 'True or False',
+    title: 'Just for Fun: Banana Ruler',
+    teach:
+      'Booleans answer silly questions with a totally straight face. Measure ' +
+      'yourself in BANANAS, then ask the computer if a giraffe is taller than you. ' +
+      'Change your banana height and run again!',
+    task: 'Make `giraffeWins` ask whether the giraffe is taller than you (use >).',
+    starter:
+      'let mySize = 5;        // your height in bananas!\nlet giraffeSize = 20;  // a giraffe in bananas\n\n// Is the giraffe taller than you?\nlet giraffeWins = ;\n\nconsole.log("Giraffe taller than you?", giraffeWins);',
+    hints: [
+      'Compare the two with the > sign.',
+      'Like: giraffeSize > mySize',
+      'Try: let giraffeWins = giraffeSize > mySize;',
+    ],
+    checks: [
+      { label: 'giraffeWins is true/false', expr: "typeof giraffeWins === 'boolean'" },
+      { label: 'giraffeWins compares the heights', expr: 'giraffeWins === (giraffeSize > mySize)' },
+    ],
+    success: 'The computer measured you in bananas without blinking! 🍌',
   },
   {
     id: 'bool-challenge',
@@ -592,6 +681,27 @@ export const PUZZLES = [
     success: 'Yellow means slow — you added a whole new branch! 🚦',
   },
   {
+    id: 'if-fun',
+    topic: 'Decisions',
+    title: 'Just for Fun: Magic Code Ball',
+    teach:
+      'if/else lets your code give different answers — perfect for a fortune teller! ' +
+      'Write your OWN silly fortune in the middle branch, then change `roll` to 1, 2, ' +
+      'or 3 and run again to see a different one.',
+    task: 'Fill in the `roll === 2` branch with your own silly fortune (any sentence in quotes).',
+    starter:
+      'let roll = 2;  // try 1, 2, or 3!\nlet fortune = "";\n\nif (roll === 1) {\n  fortune = "You will trip over a pickle today. 🥒";\n} else if (roll === 2) {\n  fortune = ;\n} else {\n  fortune = "A penguin will high-five you. 🐧";\n}\n\nconsole.log("The Magic Code Ball says:", fortune);',
+    hints: [
+      'Put any silly sentence in quotes after fortune =',
+      'Like: fortune = "A dragon will do your homework.";',
+      'Try: fortune = "You will sneeze glitter at lunch. ✨";',
+    ],
+    checks: [
+      { label: 'you wrote a fortune', expr: "typeof fortune === 'string' && fortune.length > 0" },
+    ],
+    success: 'The Magic Code Ball has spoken! if/else picks a different answer every time. 🔮',
+  },
+  {
     id: 'if-challenge',
     topic: 'Decisions',
     title: 'Challenge: Medal Ceremony',
@@ -710,6 +820,27 @@ export const PUZZLES = [
     checks: [],
     expectedOutput: ['1', '2', '3'],
     success: 'Stopped right at 3 — you control how long it runs! 🛑',
+  },
+  {
+    id: 'loop-fun',
+    topic: 'Loops',
+    title: 'Just for Fun: Evil Laugh',
+    teach:
+      'Loops are lazy magic: write one line, get a giant result! Start the laugh at ' +
+      '"Mwa", then add "ha" five times for a proper villain cackle.',
+    task: 'Inside the loop, add "ha" onto the laugh each time around.',
+    starter:
+      'let laugh = "Mwa";\n\nfor (let i = 1; i <= 5; i = i + 1) {\n  // add "ha" to the laugh each time:\n  laugh = ;\n}\n\nconsole.log(laugh + "! 😈");',
+    hints: [
+      'Add "ha" onto whatever laugh already is.',
+      'Like: laugh = laugh + "ha";',
+      'Type exactly: laugh = laugh + "ha";',
+    ],
+    checks: [
+      { label: 'the laugh grew to Mwahahahahaha', expr: 'laugh === "Mwahahahahaha"' },
+    ],
+    expectedOutput: ['Mwahahahahaha! 😈'],
+    success: 'MWAHAHAHAHAHA! One little loop, one giant evil laugh. 😈',
   },
   {
     id: 'loop-challenge',
@@ -844,6 +975,29 @@ export const PUZZLES = [
     success: 'HI! You called the machine all by yourself! 📣',
   },
   {
+    id: 'fn-fun',
+    topic: 'Functions',
+    title: 'Just for Fun: Fancy Name Machine',
+    teach:
+      'Build a machine once, use it forever! This one makes ANY name sound fancy. ' +
+      'Fill in the return, then watch it work on three different names — that reuse ' +
+      'is the whole point of functions.',
+    task: "Finish `fancyName` so it returns a fancier version of the name (keep the name in there!).",
+    starter:
+      'function fancyName(name) {\n  // return a fancy version that still includes name\n  return ;\n}\n\nconsole.log(fancyName("Max"));\nconsole.log(fancyName("Bit"));\nconsole.log(fancyName("Mom"));',
+    hints: [
+      'Use backticks and drop ${name} into something fancy.',
+      'Like: `Sir ${name} von Awesome`',
+      'Try: return `Sir ${name} von Awesome the Third`;',
+    ],
+    checks: [
+      { label: 'fancyName returns a word', expr: "typeof fancyName('Max') === 'string'" },
+      { label: 'it keeps the name inside', expr: "fancyName('Max').includes('Max')" },
+      { label: 'it adds fancy flair', expr: "fancyName('Max').length > 'Max'.length" },
+    ],
+    success: 'One machine, endless fancy names! That is why functions rule. 🎩',
+  },
+  {
     id: 'fn-challenge',
     topic: 'Functions',
     title: 'Challenge: Ticket Machine',
@@ -960,6 +1114,28 @@ export const PUZZLES = [
     success: '4 planets in the list — you counted like a computer! 🪐',
   },
   {
+    id: 'arr-fun',
+    topic: 'Lists',
+    title: 'Just for Fun: Monster Sandwich',
+    teach:
+      'Lists hold all your wild stuff in one place. Push a brand-new ingredient onto ' +
+      'the sandwich, then peek at items by their slot number. Try any ingredient you ' +
+      'like and run again!',
+    task: 'Use .push() to add one more wild ingredient to the sandwich.',
+    starter:
+      'let sandwich = ["jelly", "pickles", "glitter"];\n\n// Add one more wild ingredient (slot 3):\nsandwich.push();\n\nconsole.log("Your sandwich has", sandwich[0], "and", sandwich[3] + "!");',
+    hints: [
+      'Put your ingredient (in quotes) inside push().',
+      'Like: sandwich.push("worms");',
+      'Try: sandwich.push("rainbow sprinkles");',
+    ],
+    checks: [
+      { label: 'sandwich now has 4 ingredients', expr: 'sandwich.length === 4' },
+      { label: 'slot 3 is a word', expr: "typeof sandwich[3] === 'string' && sandwich[3].length > 0" },
+    ],
+    success: 'A sandwich only a code monster could love! Lists hold all your wild stuff. 🥪',
+  },
+  {
     id: 'arr-challenge',
     topic: 'Lists',
     title: 'Challenge: Guest List',
@@ -1070,6 +1246,29 @@ export const PUZZLES = [
     ],
     expectedOutput: ['Turbo'],
     success: 'Turbo added — the car got an upgrade! 🚗',
+  },
+  {
+    id: 'obj-fun',
+    topic: 'Objects',
+    title: 'Just for Fun: Make a Monster',
+    teach:
+      "Objects bundle all of one thing's details together. Invent a monster: give it " +
+      'a name, a horrible smell, and a number of toes. Change any detail and run ' +
+      'again for a new beast!',
+    task: 'Fill in the monster object: a name, a smell (both words), and a number of toes.',
+    starter:
+      '// Invent a monster! Fill in its silly details.\nlet monster = {\n  name: ,\n  smell: ,\n  toes: ,\n};\n\nconsole.log(monster.name, "smells like", monster.smell, "and has", monster.toes, "toes!");',
+    hints: [
+      'name and smell are words (use quotes); toes is a number.',
+      'Like: { name: "Gloop", smell: "old cheese", toes: 11 }',
+      'Try:\nlet monster = {\n  name: "Gloop",\n  smell: "old cheese",\n  toes: 11,\n};',
+    ],
+    checks: [
+      { label: 'monster has a name', expr: "typeof monster.name === 'string' && monster.name.length > 0" },
+      { label: 'monster has a smell', expr: "typeof monster.smell === 'string' && monster.smell.length > 0" },
+      { label: 'toes is a number', expr: "typeof monster.toes === 'number'" },
+    ],
+    success: 'Eww, what a monster! Objects keep all its gross details together. 👹',
   },
   {
     id: 'obj-challenge',
@@ -1210,6 +1409,28 @@ export const PUZZLES = [
     ],
     expectedOutput: ['Woof!'],
     success: 'Woof! You wrote a whole method yourself! 🐕',
+  },
+  {
+    id: 'class-fun',
+    topic: 'Blueprints',
+    title: 'Just for Fun: Pet Factory',
+    teach:
+      "One blueprint can stamp out a whole zoo! Finish the Pet's speak() method, then " +
+      'watch two totally different pets each make their own silly noise from the same ' +
+      'class.',
+    task: 'Finish `speak()` so it returns the pet\'s name and its noise (like "Rex says BORK!").',
+    starter:
+      'class Pet {\n  constructor(name, noise) {\n    this.name = name;\n    this.noise = noise;\n  }\n  speak() {\n    return ;\n  }\n}\n\nlet a = new Pet("Rex", "BORK");\nlet b = new Pet("Mittens", "mrrp");\nconsole.log(a.speak());\nconsole.log(b.speak());',
+    hints: [
+      'Use backticks with both this.name and this.noise.',
+      'Like: `${this.name} says ${this.noise}!`',
+      'Try: return `${this.name} says ${this.noise}!`;',
+    ],
+    checks: [
+      { label: 'speak() includes the name', expr: 'new Pet("Rex", "BORK").speak().includes("Rex")' },
+      { label: 'speak() includes the noise', expr: 'new Pet("Rex", "BORK").speak().includes("BORK")' },
+    ],
+    success: 'Two pets from one blueprint, each with its own silly sound! 🐾',
   },
   {
     id: 'class-challenge',
